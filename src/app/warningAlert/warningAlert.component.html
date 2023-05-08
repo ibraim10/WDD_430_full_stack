@@ -1,0 +1,32 @@
+<p class="warning">Warning Alert</p>
+<br />
+<label for="">User Name</label>
+
+<input type="text" class="form-control" [(ngModel)]="userName" />
+<p>{{ userName }}</p>
+<br />
+<button
+  class="btn btn-primary"
+  [disabled]="userName === ''"
+  (click)="userName = ''"
+>
+  Reset User
+</button>
+<br />
+<br />
+<!-- <button class="btn byn-primary" (click)="showSecret = !showSecret">
+  Display Details
+</button> -->
+<button class="btn byn-primary" (click)="onToggleDetails()">
+  Display Details
+</button>
+<p *ngIf="showSecret">Secret password = Tuna</p>
+<div
+  *ngFor="let logItem of log; let i = index"
+  [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
+  [ngClass]="{ 'white-text': i >= 4 }"
+>
+  {{ logItem }}
+</div>
+<br />
+<br />
